@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Boston Hurst | Portfolio</title>
-
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap">
 
     <style>
@@ -18,6 +17,7 @@
             line-height: 1.6;
             display: flex;
             overflow-x: hidden;
+            
         }
 
         header, nav, section, #contacts, #clients, footer {
@@ -32,7 +32,7 @@
                 transform: translateY(10px);
             }
             to {
-                opacity: 7;
+                opacity: 1;
                 transform: translateY(0);
             }
         }
@@ -45,6 +45,8 @@
             box-shadow: 0 0 20px rgba(77, 88, 117, 0.8);
             width: 100%;
             z-index: 2;
+            width: 95.3%;
+
         }
 
         h1 {
@@ -59,7 +61,7 @@
             position: relative;
             z-index: 2;
             display: inline-block;
-            animation: shimmer 2s infinite;
+            animation: shimmer 1.5s infinite;
             background: linear-gradient(90deg, rgba(255, 255, 255, 0.5), rgb(255, 255, 255), rgba(255, 255, 255, 0.5));
             background-size: 200% 100%;
             color: transparent;
@@ -88,36 +90,8 @@
             flex-direction: column;
             justify-content: flex-start;
             height: 100vh;
-            width: 50px;
-            box-shadow: 0 0 20px rgba(44, 62, 80, 0.8);
-            cursor: pointer;
-            transition: width 0.3s;
+            width: 20px;
             position: fixed;
-            top: 0;
-            left: 0;
-        }
-
-        body:not(:hover) nav {
-            width: 10px;
-            color: transparent;
-        }
-
-        nav:hover {
-            width: 50px;
-        }
-
-        nav a {
-            color: #fff;
-            text-decoration: none;
-            padding: 0.5em 1em;
-            margin: 0 1em;
-            transition: color 0.3s;
-            position: relative;
-            z-index: 2;
-        }
-
-        nav a:hover {
-            color: #3498db;
         }
 
         main {
@@ -127,10 +101,31 @@
             transition: margin-left 0.3s;
             position: relative;
             z-index: 1;
+            align-self: stretch;
         }
 
-        body:hover main {
-            margin-left: 200px;
+        .nav-collapsed {
+            width: 50px;
+        }
+
+        .nav-expanded {
+            width: 200px;
+        }
+
+        nav a {
+            color: #ffffff;
+            text-decoration: none;
+            padding: 1em .25em;
+            margin: 0 1em;
+            transition: color 0.3s;
+            position: relative;
+            z-index: 2;
+            justify-content: center;
+            top: 2%;
+        }
+
+        nav a:hover {
+            color: #3498db;
         }
 
         section {
@@ -202,18 +197,21 @@
         footer:hover {
             opacity: 0.8;
         }
+
     </style>
 </head>
 <body>
 
-    <nav>
-        <a href="#pictures">Pictures</a>
-        <a href="#contacts">Contact</a>
-        <a href="#clients">Clients</a>
+    <nav class="nav-button">
+        <a href="#home"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 256 256"><path fill="currentColor" d="m221.56 100.85l-79.95-75.47l-.16-.15a19.93 19.93 0 0 0-26.91 0l-.17.15l-79.93 75.47a20.07 20.07 0 0 0-6.44 14.7V208a20 20 0 0 0 20 20h48a20 20 0 0 0 20-20v-44h24v44a20 20 0 0 0 20 20h48a20 20 0 0 0 20-20v-92.45a20.07 20.07 0 0 0-6.44-14.7M204 204h-40v-44a20 20 0 0 0-20-20h-32a20 20 0 0 0-20 20v44H52v-86.72l76-71.75l76 71.75Z"/></svg></a>
+        <a href="#pictures"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 256 256"><path fill="currentColor" d="M216 36H80a20 20 0 0 0-20 20v12H40a20 20 0 0 0-20 20v112a20 20 0 0 0 20 20h144a20 20 0 0 0 20-20v-20h12a20 20 0 0 0 20-20V56a20 20 0 0 0-20-20M84 60h128v45.09l-3.23-3.23a20 20 0 0 0-28.28 0L165.31 117l-35.17-35.14a20 20 0 0 0-28.28 0L84 99.72Zm96 136H44V92h16v68a20 20 0 0 0 20 20h100Zm-96-40v-22.34l32-32l40.83 40.83a12 12 0 0 0 17 0l20.83-20.83L212 139v17Z"/></svg></a>
+        <a href="#contacts"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 256 256"><path fill="currentColor" d="m230.66 86l-96-64a12 12 0 0 0-13.32 0l-96 64A12 12 0 0 0 20 96v104a20 20 0 0 0 20 20h176a20 20 0 0 0 20-20V96a12 12 0 0 0-5.34-10M89.81 152L44 184.31v-65Zm24.55 12h27.28L187 196H69.05Zm51.83-12L212 119.29v65ZM128 46.42l74.86 49.91L141.61 140h-27.22L53.14 96.33Z"/></svg></a>
+        <a href="#clients"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 256 256"><path fill="currentColor" d="M234.38 210a123.36 123.36 0 0 0-60.78-53.23a76 76 0 1 0-91.2 0A123.36 123.36 0 0 0 21.62 210a12 12 0 1 0 20.77 12c18.12-31.32 50.12-50 85.61-50s67.49 18.69 85.61 50a12 12 0 0 0 20.77-12M76 96a52 52 0 1 1 52 52a52.06 52.06 0 0 1-52-52"/></svg></a>
+        <a href="https://github.com/Sheaikah3284/boston-portfolio"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 256 256"><path fill="currentColor" d="M212.62 75.17A63.7 63.7 0 0 0 206.39 26A12 12 0 0 0 196 20a63.71 63.71 0 0 0-50 24h-20a63.71 63.71 0 0 0-50-24a12 12 0 0 0-10.39 6a63.7 63.7 0 0 0-6.23 49.17A61.5 61.5 0 0 0 52 104v8a60.1 60.1 0 0 0 45.76 58.28A43.66 43.66 0 0 0 92 192v4H76a20 20 0 0 1-20-20a44.05 44.05 0 0 0-44-44a12 12 0 0 0 0 24a20 20 0 0 1 20 20a44.05 44.05 0 0 0 44 44h16v12a12 12 0 0 0 24 0v-40a20 20 0 0 1 40 0v40a12 12 0 0 0 24 0v-40a43.66 43.66 0 0 0-5.76-21.72A60.1 60.1 0 0 0 220 112v-8a61.5 61.5 0 0 0-7.38-28.83M196 112a36 36 0 0 1-36 36h-48a36 36 0 0 1-36-36v-8a37.87 37.87 0 0 1 6.13-20.12a11.65 11.65 0 0 0 1.58-11.49a39.9 39.9 0 0 1-.4-27.72a39.87 39.87 0 0 1 26.41 17.8a12 12 0 0 0 10.1 5.53h32.35a12 12 0 0 0 10.11-5.53a39.84 39.84 0 0 1 26.41-17.8a39.9 39.9 0 0 1-.4 27.72a12 12 0 0 0 1.61 11.53A37.85 37.85 0 0 1 196 104Z"/></svg></a>
     </nav>
 
     <main>
-        <header>
+        <header id="home">
             <h1><span>Boston Hurst</span></h1>
             <p>Web Developer</p>
         </header>
@@ -254,5 +252,6 @@
             &copy; 2023 Boston Hurst - Portfolio
         </footer>
     </main>
+
 </body>
 </html>
