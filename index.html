@@ -5,72 +5,129 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Boston Hurst | Portfolio</title>
 
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap">
 
     <style>
         body {
-            font-family: 'Roboto', sans-serif;
+            font-family: 'Montserrat', sans-serif;
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            background-color: #2C3E50; /* Darker green background */
-            color: #ecf0f1; /* Lighter text color */
+            background-color: #2C3E50;
+            color: #ecf0f1;
             line-height: 1.6;
         }
 
+        header, nav, section, #contacts, #clients, footer {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.8s forwards;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 7;
+                transform: translateY(0);
+            }
+        }
+
         header {
-            background-color: #4D5875; /* Moody blue header */
+            background-color: #4D5875;
             color: #fff;
             text-align: center;
             padding: 2em;
+            box-shadow: 0 0 20px rgba(77, 88, 117, 0.8);
         }
 
         h1 {
             margin: 0;
-            font-size: 3em; /* Larger font size */
-            letter-spacing: 2px; /* Increased letter spacing for style */
+            font-size: 3em;
+            letter-spacing: 2px;
+            position: relative;
+            display: inline-block;
+        }
+
+        h1 span {
+            position: relative;
+            z-index: 2;
+            display: inline-block;
+            animation: shimmer 2s infinite;
+            background: linear-gradient(90deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.5));
+            background-size: 200% 100%;
+            color: transparent;
+            -webkit-background-clip: text;
+            background-clip: text;
+        }
+
+        @keyframes shimmer {
+            0% {
+                background-position: 100% 0;
+            }
+            100% {
+                background-position: -100% 0;
+            }
         }
 
         p {
             margin: 0;
-            font-size: 1.2em; /* Larger font size */
+            font-size: 1.2em;
         }
 
         nav {
-            background-color: #2C3E50; /* Darker blue navigation */
-            text-align: right; /* Align content to the right */
+            background-color: #2C3E50;
+            text-align: right;
             display: flex;
-            justify-content: flex-end; /* Align content to the right */
-            height: 1.5em; /* Adjusted height */
+            justify-content: flex-end;
+            height: 1.5em;
+            box-shadow: 0 0 20px rgba(44, 62, 80, 0.8);
         }
 
         nav a {
             color: #fff;
             text-decoration: none;
             padding: 0.5em 1em;
-            margin: 0 1em; /* Increased margin */
+            margin: 0 1em;
+            transition: color 0.3s;
+            cursor: pointer;
+        }
+
+        nav a:hover {
+            color: #3498db;
+            cursor: pointer;
         }
 
         section {
             padding: 2em 1em;
-            background-color: #34495e; /* Darker blue background for sections */
+            background-color: #34495e;
             margin: 1em 0;
             border-radius: 8px;
+            transition: background-color 0.3s;
+            box-shadow: 0 0 20px rgba(52, 73, 94, 0.8);
+        }
+
+        section:hover {
+            background-color: #2c3e50;
         }
 
         section h2 {
-            color: #ecf0f1; /* Lighter text color for headings */
+            color: #ecf0f1;
         }
 
         section p {
-            color: #bdc3c7; /* Lighter text color for paragraphs */
+            color: #bdc3c7;
         }
 
         section img {
             max-width: 100%;
             height: auto;
-            width: 100%; /* Adjusted width for images */
+            width: 100%;
             margin-bottom: 1em;
+            transition: transform 0.3s ease-in-out;
+            box-shadow: 0 0 20px rgba(52, 73, 94, 0.8);
         }
 
         #contacts,
@@ -81,7 +138,7 @@
         }
 
         .linkedin-button {
-            background-color: #0077B5; /* LinkedIn blue */
+            background-color: #0077B5;
             color: #fff;
             padding: 0.5em 1em;
             border: none;
@@ -89,29 +146,41 @@
             cursor: pointer;
             text-decoration: none;
             display: inline-block;
+            transition: background-color 0.3s;
+            box-shadow: 0 0 20px rgba(0, 119, 181, 0.8);
+        }
+
+        .linkedin-button:hover {
+            background-color: #005580;
         }
 
         footer {
-            background-color: #4D5875; /* Moody blue footer */
+            background-color: #4D5875;
             color: #fff;
             text-align: center;
             padding: 0.5em;
             width: 100%;
             position: relative;
-            bottom: 0; /* Positioned at the bottom */
+            bottom: 0;
+            transition: opacity 0.3s;
+            box-shadow: 0 0 20px rgba(77, 88, 117, 0.8);
         }
+
+        footer:hover {
+            opacity: 0.8;
+        }
+
     </style>
 </head>
 <body>
 
     <header>
-        <h1>Boston Hurst</h1>
-        <p>Web Developer</p>
+        <img src="Images/Logo/Logo copy.png" alt="Logo">
     </header>
 
     <nav>
         <a href="#pictures">Pictures</a>
-        <a href="#contacts">Contacts</a>
+        <a href="#contacts">Contact</a>
         <a href="#clients">Clients</a>
     </nav>
 
@@ -129,14 +198,14 @@
     </section>
 
     <section id="clients">
-        <h2>Clients</h2>
+        <h2>Clients:</h2>
         <p>Client</p>
         <p>Client</p>
         <p>Client</p>
     </section>
 
     <section>
-        <h2>Skills</h2>
+        <h2>Skills:</h2>
         <p>Web Development, HTML, CSS, JavaScript, React</p>
     </section>
 
