@@ -16,6 +16,8 @@
             background-color: #2C3E50;
             color: #ecf0f1;
             line-height: 1.6;
+            display: flex;
+            overflow-x: hidden;
         }
 
         header, nav, section, #contacts, #clients, footer {
@@ -41,6 +43,8 @@
             text-align: center;
             padding: 2em;
             box-shadow: 0 0 20px rgba(77, 88, 117, 0.8);
+            width: 100%;
+            z-index: 2;
         }
 
         h1 {
@@ -81,10 +85,25 @@
             background-color: #2C3E50;
             text-align: right;
             display: flex;
-            justify-content: flex-end;
-            height: 1.5em;
+            flex-direction: column;
+            justify-content: flex-start;
+            height: 100vh;
+            width: 50px;
             box-shadow: 0 0 20px rgba(44, 62, 80, 0.8);
             cursor: pointer;
+            transition: width 0.3s;
+            position: fixed;
+            top: 0;
+            left: 0;
+        }
+
+        body:not(:hover) nav {
+            width: 10px;
+            color: transparent;
+        }
+
+        nav:hover {
+            width: 50px;
         }
 
         nav a {
@@ -93,12 +112,25 @@
             padding: 0.5em 1em;
             margin: 0 1em;
             transition: color 0.3s;
-            cursor: pointer;
+            position: relative;
+            z-index: 2;
         }
 
         nav a:hover {
             color: #3498db;
-            cursor: pointer;
+        }
+
+        main {
+            flex: 1;
+            padding: 20px;
+            margin-left: 50px;
+            transition: margin-left 0.3s;
+            position: relative;
+            z-index: 1;
+        }
+
+        body:hover main {
+            margin-left: 200px;
         }
 
         section {
@@ -124,7 +156,7 @@
 
         section iframe {
             width: 100%;
-            height: 600px; /* Adjust the height as needed */
+            height: 600px;
             border: none;
             margin-bottom: 1em;
             transition: transform 0.3s ease-in-out;
@@ -174,51 +206,53 @@
 </head>
 <body>
 
-    <header>
-        <h1><span>Boston Hurst</span></h1>
-        <p>Web Developer</p>
-    </header>
-
     <nav>
         <a href="#pictures">Pictures</a>
         <a href="#contacts">Contact</a>
         <a href="#clients">Clients</a>
     </nav>
 
-    <section id="pictures">
-        <h2>Portfolio Pictures</h2>
-        <iframe src="https://fusebox.fm" title="Project 1"></iframe>
-        <iframe src="https://fusebox.fm" title="Project 2"></iframe>
-    </section>
+    <main>
+        <header>
+            <h1><span>Boston Hurst</span></h1>
+            <p>Web Developer</p>
+        </header>
 
-    <section id="contacts">
-        <h2>Contact Information</h2>
-        <p>Email: boston.b.hurst@gmail.com</p>
-        <p>Phone: +1 (385) 524-6499</p>
-        <p>LinkedIn: <a class="linkedin-button" href="https://www.linkedin.com/in/boston-hurst-0b11792a7/" target="_blank">Visit LinkedIn</a></p>
-    </section>
+        <section id="pictures">
+            <h2>Portfolio Pictures</h2>
+            <iframe src="https://fusebox.fm" title="Project 1"></iframe>
+            <iframe src="https://fusebox.fm" title="Project 2"></iframe>
+        </section>
 
-    <section id="clients">
-        <h2>Clients:</h2>
-        <p>Client</p>
-        <p>Client</p>
-        <p>Client</p>
-    </section>
+        <section id="contacts">
+            <h2>Contact Information</h2>
+            <p>Email: boston.b.hurst@gmail.com</p>
+            <p>Phone: +1 (385) 524-6499</p>
+            <p>LinkedIn: <a class="linkedin-button" href="https://www.linkedin.com/in/boston-hurst-0b11792a7/" target="_blank">Visit LinkedIn</a></p>
+        </section>
 
-    <section>
-        <h2>Skills:</h2>
-        <p>Web Development, HTML, CSS, JavaScript</p>
-    </section>
+        <section id="clients">
+            <h2>Clients:</h2>
+            <p>Client</p>
+            <p>Client</p>
+            <p>Client</p>
+        </section>
 
-    <section>
-        <h2>Working on:</h2>
-        <p>Project 1: </p>
-        <p>Project 2: </p>
-        <p>Project 3: </p>
-    </section>
+        <section>
+            <h2>Skills:</h2>
+            <p>Web Development, HTML, CSS, JavaScript</p>
+        </section>
 
-    <footer>
-        &copy; 2023 Boston Hurst - Portfolio
-    </footer>
+        <section>
+            <h2>Working on:</h2>
+            <p>Project 1: </p>
+            <p>Project 2: </p>
+            <p>Project 3: </p>
+        </section>
+
+        <footer>
+            &copy; 2023 Boston Hurst - Portfolio
+        </footer>
+    </main>
 </body>
 </html>
