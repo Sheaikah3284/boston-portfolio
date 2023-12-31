@@ -39,15 +39,17 @@
         }
 
         header {
+            display: flex;
+            flex-direction: column;
             background-color: #4D5875;
             color: #fff;
             text-align: center;
             padding: 2em;
             box-shadow: 0 0 20px rgba(77, 88, 117, 0.8);
-            width: 100%;
+            width: 96.6;
             z-index: 2;
-            width: 95.3%;
-
+            margin: 1em 0;
+            border-radius: 8px;
         }
 
         h1 {
@@ -103,14 +105,6 @@
             position: relative;
             z-index: 1;
             align-self: stretch;
-        }
-
-        .nav-collapsed {
-            width: 50px;
-        }
-
-        .nav-expanded {
-            width: 200px;
         }
 
         nav a {
@@ -197,6 +191,47 @@
 
         footer:hover {
             opacity: 0.8;
+        }
+
+        @media only screen and (max-width: 400px) {
+            nav {
+                flex-direction: row;
+                justify-content: space-around;
+                align-items: center;
+                height: 50px;
+                width: 100%;
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                background-color: #2C3E50;
+                z-index: 2;
+            }
+
+            header {
+                display: flex;
+                width: fit-content;
+            }
+
+            nav a {
+                margin: 0;
+            }
+
+            nav a:hover {
+                color: #3498db;
+            }
+
+            main {
+                margin-left: 0;
+                padding: 0;
+            }
+
+            section iframe {
+                height: 300px;
+            }
+
+            footer{
+                color: transparent;
+            }
         }
 
     </style>
